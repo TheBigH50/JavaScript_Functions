@@ -104,16 +104,20 @@ const getUsageFeedback = (planLimit, days, usage) => {
   if (currentAvg > projectedAvg) {
     output += `You are EXCEEDING your average daily use (${currentAvg} GB/day),
 continuing this high usage, you will exceed your data plan by
-${projectedUsage - planLimit} GB.`;
-  } else if (currentAvg < projectedAvg) {
-  } else
-    console.log(`You are ${status} your average daily use (${currentAvg} GB/day),
-    continuing this high usage, you'll exceed your data plan by ${
-      projectedUsage - planLimit
-    } GB.`);
-  console.log(
-    `To stay below your data plan, use no more than ${adjustedAvg} GB/day`
-  );
-};
+${projectedUsage - planLimit} GB.  To stay below your data plan, use no more than ${adjustedAvg} GB/day`;
+  };
+   if (currentAvg < projectedAvg) {
+    output += `You are going to leave un-used data behind,
+    you do not have a roll over plan!  at your current usage rate,
+    you will leave ${adjustedAvg - projectedUsage} GB behind!`;
+  };
+   if (currentAvg == projectedAvg) {
+  output += `You are right on track, keep up the good work, your average daily use of
+  ${currentAvg} GB/day is spot on for your current plan.`;
+  };
+  };
 
-getUsageFeedback(100, 15, 56);
+let dataAllowance = parseInt(prompt("Enter GB data cap"));
+let daysIn = parseInt(prompt("Enter how many days into current billing cycle you are"));
+let gbUsed = parseInt(prompt("Enter how many GB of data you have used"));
+console.log(getUsageFeedback(dataAllowance, daysIn, gbUsed));
