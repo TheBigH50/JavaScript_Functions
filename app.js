@@ -41,7 +41,7 @@ if (!isNaN(age)) {
   checkAge(age, name);
 }
 if (isNaN(age)) {
-    console.log("That isn't an age!")
+  console.log("That isn't an age!");
 }
 
 //Exe3
@@ -63,15 +63,35 @@ const determinePosition = (x, y) => {
 //Exe4
 
 const isValidTriangle = (a, b, c) => {
-    return a + b > c && a + c > b && b + c > a;
-}
+  return a + b > c && a + c > b && b + c > a;
+};
 
 const determinTriangle = (a, b, c) => {
-    let isValid = isValidTriangle(a, b, c);
+  let isValid = isValidTriangle(a, b, c);
 
-    if (isValid) {
-        if (a == b && b == c) {
-            return `Equilateral`;
-        }
+  if (isValid) {
+    if (a == b && b == c) {
+      return `Equilateral`;
     }
-}
+  }
+};
+
+//Exe5
+
+const getUsageFeedback = (planLimit, days, usage) => {
+  const cycleLength = 30;
+  const projectedAvg = planLimit / cycleLength;
+  const currentAvg = usage / days;
+  const projectedUsage = currentAvg * cycleLength;
+  const adjustedAvg = (planLimit - usage) / (cycleLength - days)
+
+  console.log(`${days} days used, ${cycleLength - days} days remaining`);
+  console.log(`Suggested daily use: ${projectedAvg} GB/day`);
+  console.log(`You are ${status} your average daily use (${currentAvg} GB/day),
+    continuing this high usage, you'll exceed your data plan by ${
+      projectedUsage - planLimit
+    } GB.`);
+    console.log(`To stay below your data plan, use no more than ${adjustedAvg} GB/day`)
+};
+
+getUsageFeedback(100, 15, 56);
