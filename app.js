@@ -40,6 +40,9 @@ let age = parseInt(prompt("What is your age?"));
 if (!isNaN(age)) {
   checkAge(age, name);
 }
+if (isNaN(age)) {
+    console.log("That isn't an age!")
+}
 
 //Exe3
 
