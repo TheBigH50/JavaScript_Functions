@@ -20,3 +20,23 @@ let input = parseInt(prompt("input a number"));
 if (!isNaN(input)) {
   printOdds(input);
 }
+
+//Exe2
+
+function checkAge(age, name) {
+  let ofAgeMsg = `Congrats ${name}, you are old enough to drive`;
+  let underAgeMsg = `Sorry ${name}, you aren"t old enough to drive`;
+
+  if (age >= 16) {
+    console.log(ofAgeMsg);
+  } else {
+    console.log(underAgeMsg);
+  }
+}
+
+let name = prompt("What is your name?");
+let age = parseInt(prompt("What is your age?"));
+
+if (!isNaN(input)) {
+  checkAge(age, name);
+}
