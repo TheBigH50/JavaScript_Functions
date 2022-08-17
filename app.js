@@ -56,3 +56,19 @@ const determinePosition = (x, y) => {
     return "x axis";
   }
 };
+
+//Exe4
+
+const isValidTriangle = (a, b, c) => {
+    return a + b > c && a + c > b && b + c > a;
+}
+
+const determinTriangle = (a, b, c) => {
+    let isValid = isValidTriangle(a, b, c);
+
+    if (isValid) {
+        if (a == b && b == c) {
+            return `Equilateral`;
+        }
+    }
+}
