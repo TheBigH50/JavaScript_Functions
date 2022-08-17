@@ -60,11 +60,14 @@ const determinePosition = (x, y) => {
   }
 };
 
+let xAxis = parseInt(prompt("Enter X coordinate"));
+let yAxis = parseInt(prompt("Enter y coordinate"));
+console.log(determinePosition(xAxis, yAxis));
 //Exe4
 
-const isValidTriangle = (a, b, c) => {
+function isValidTriangle(a, b, c) {
   return a + b > c && a + c > b && b + c > a;
-};
+}
 
 const determineTriangle = (a, b, c) => {
   let isValid = isValidTriangle(a, b, c);
@@ -80,9 +83,9 @@ const determineTriangle = (a, b, c) => {
   }
 };
 
-let side1 = parseInt(prompt("Enter side one"))
-let side2 = parseInt(prompt("Enter side two"))
-let side3 = parseInt(prompt("Enter side three"))
+let side1 = parseInt(prompt("Enter side one"));
+let side2 = parseInt(prompt("Enter side two"));
+let side3 = parseInt(prompt("Enter side three"));
 console.log(determineTriangle(side1, side2, side3));
 
 //Exe5
