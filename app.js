@@ -66,15 +66,24 @@ const isValidTriangle = (a, b, c) => {
   return a + b > c && a + c > b && b + c > a;
 };
 
-const determinTriangle = (a, b, c) => {
+const determineTriangle = (a, b, c) => {
   let isValid = isValidTriangle(a, b, c);
 
   if (isValid) {
     if (a == b && b == c) {
       return `Equilateral`;
+    } else if (a == b && b != c) {
+      return `Isosceles`;
+    } else if (a != b && b != c) {
+      return `Scalene`;
     }
   }
 };
+
+let side1 = parseInt(prompt("Enter side one"))
+let side2 = parseInt(prompt("Enter side two"))
+let side3 = parseInt(prompt("Enter side three"))
+console.log(determineTriangle(side1, side2, side3));
 
 //Exe5
 
@@ -83,24 +92,25 @@ const getUsageFeedback = (planLimit, days, usage) => {
   const projectedAvg = planLimit / cycleLength;
   const currentAvg = usage / days;
   const projectedUsage = currentAvg * cycleLength;
-  const adjustedAvg = (planLimit - usage) / (cycleLength - days)
+  const adjustedAvg = (planLimit - usage) / (cycleLength - days);
 
-  let = output =`${days} days used, ${cycleLength - days} days remaining
+  let = output = `${days} days used, ${cycleLength - days} days remaining
   Suggested daily use: ${projectedAvg} GB/day
   `;
 
   if (currentAvg > projectedAvg) {
-output += `You are EXCEEDING your average daily use (${currentAvg} GB/day),
+    output += `You are EXCEEDING your average daily use (${currentAvg} GB/day),
 continuing this high usage, you will exceed your data plan by
-${projectedUsage - planLimit} GB.`
+${projectedUsage - planLimit} GB.`;
   } else if (currentAvg < projectedAvg) {
-
   } else
-  console.log(`You are ${status} your average daily use (${currentAvg} GB/day),
+    console.log(`You are ${status} your average daily use (${currentAvg} GB/day),
     continuing this high usage, you'll exceed your data plan by ${
       projectedUsage - planLimit
     } GB.`);
-    console.log(`To stay below your data plan, use no more than ${adjustedAvg} GB/day`)
+  console.log(
+    `To stay below your data plan, use no more than ${adjustedAvg} GB/day`
+  );
 };
 
 getUsageFeedback(100, 15, 56);
