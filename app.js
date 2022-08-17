@@ -52,5 +52,7 @@ const determinePosition = (x, y) => {
     return "Q3";
   } else if (x > 0 && y < 0) {
     return "Q4";
+  } else if (x == 0 && y != 0) {
+    return "x axis";
   }
 };
