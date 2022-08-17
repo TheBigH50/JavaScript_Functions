@@ -42,3 +42,15 @@ if (!isNaN(age)) {
 }
 
 //Exe3
+
+const determinePosition = (x, y) => {
+  if (x > 0 && y > 0) {
+    return "Q1";
+  } else if (x < 0 && y > 0) {
+    return "Q2";
+  } else if (x < 0 && y < 0) {
+    return "Q3";
+  } else if (x > 0 && y < 0) {
+    return "Q4";
+  }
+};
