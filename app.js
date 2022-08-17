@@ -85,8 +85,17 @@ const getUsageFeedback = (planLimit, days, usage) => {
   const projectedUsage = currentAvg * cycleLength;
   const adjustedAvg = (planLimit - usage) / (cycleLength - days)
 
-  console.log(`${days} days used, ${cycleLength - days} days remaining`);
-  console.log(`Suggested daily use: ${projectedAvg} GB/day`);
+  let = output =`${days} days used, ${cycleLength - days} days remaining
+  Suggested daily use: ${projectedAvg} GB/day
+  `;
+
+  if (currentAvg > projectedAvg) {
+output += `You are EXCEEDING your average daily use (${currentAvg} GB/day),
+continuing this high usage, you will exceed your data plan by
+${projectedUsage - planLimit} GB.`
+  } else if (currentAvg < projectedAvg) {
+
+  } else
   console.log(`You are ${status} your average daily use (${currentAvg} GB/day),
     continuing this high usage, you'll exceed your data plan by ${
       projectedUsage - planLimit
