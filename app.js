@@ -34,13 +34,13 @@ function checkAge(age, name) {
   }
 }
 
-let name = prompt("What is your name?");
-let age = parseInt(prompt("What is your age?"));
+let namer = prompt("What is your name?");
+let ager = parseInt(prompt("What is your age?"));
 
-if (!isNaN(age)) {
-  checkAge(age, name);
+if (!isNaN(ager)) {
+  checkAge(ager, namer);
 }
-if (isNaN(age)) {
+if (isNaN(ager)) {
   console.log("That isn't an age!");
 }
 
