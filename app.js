@@ -90,14 +90,21 @@ console.log(determineTriangle(side1, side2, side3));
 
 //Exe5
 
+const getRoundedNumber = (num) => {
+  return parseFloat(num.toFixed(3));
+};
+const getAvg = (total, length) => {
+  return getRoundedNumber(total/length);
+}
+
 const getUsageFeedback = (planLimit, days, usage) => {
   const cycleLength = 30;
-  const projectedAvg = planLimit / cycleLength;
-  const currentAvg = usage / days;
-  const projectedUsage = currentAvg * cycleLength;
-  const adjustedAvg = (planLimit - usage) / (cycleLength - days);
+  const projectedAvg = getAvg(planLimit, cycleLength);
+  const currentAvg = getAvg(usage, days);
+  const projectedUsage = getRoundedNumber(currentAvg) * getRoundedNumber(cycleLength);
+  const adjustedAvg = getAvg(planLimit - usage, cycleLength - days);
 
-  let = output = `${days} days used, ${cycleLength - days} days remaining
+  let output = `${days} days used, ${cycleLength - days} days remaining
   Suggested daily use: ${projectedAvg} GB/day
   `;
 
@@ -108,7 +115,7 @@ ${projectedUsage - planLimit} GB.  To stay below your data plan,
 use no more than ${adjustedAvg} GB/day`;
   } else if (currentAvg < projectedAvg) {
     output += `You are going to leave un-used data behind,
-    you do not have a roll over plan!  at your current usage rate,
+    you do not have a roll over plan!  At your current usage rate,
     you will leave ${Math.abs(projectedUsage - planLimit)} GB behind!
     To use all of your data plan, use on average ${adjustedAvg} GB/day`;
   } else {
@@ -122,5 +129,3 @@ let dataAllowance = parseInt(prompt("Enter GB data cap"));
 let daysIn = parseInt(prompt("Enter how many days into current billing cycle you are"));
 let gbUsed = parseInt(prompt("Enter how many GB of data you have used"));
 getUsageFeedback(dataAllowance, daysIn, gbUsed);
-
-console.log(getUsageFeedback(200, 12, 30));
