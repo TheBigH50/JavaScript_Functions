@@ -59,6 +59,8 @@ const determinePosition = (x, y) => {
     return "x axis";
   } else if (x != 0 && y == 0) {
     return "y axis";
+  } else if (x == 0 && y == 0) {
+    return "origin";
   }
 };
 
